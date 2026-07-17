@@ -14,7 +14,12 @@ module.exports = async function (context, req) {
     context.res = { status: 405, body: { error: "Method not allowed" } };
   } catch (err) {
     context.log.error(err);
-    context.res = { status: 500, body: { error: "Internal server error" } };
+    // TEMPORARY: exposes the real error message for debugging.
+    // Remove the `detail` field once the issue is fixed.
+    context.res = {
+      status: 500,
+      body: { error: "Internal server error", detail: err.message },
+    };
   }
 };
 

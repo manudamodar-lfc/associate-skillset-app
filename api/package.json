@@ -2,7 +2,6 @@
   "name": "skillset-api",
   "version": "1.0.0",
   "private": true,
-  "main": "dist/{index.js,*/index.js}",
   "scripts": {
     "build": "echo \"no build step\"",
     "prestart": "npm run build",

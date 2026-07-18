@@ -357,9 +357,8 @@ function AdminGate({ onUnlock }) {
     setErr(false);
     try {
       const res = await fetch("/api/admin-login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password: pw }),
+        const res = await fetch("/api/submissions", {
+        headers: { "x-admin-password": pw },
       });
       if (res.ok) {
         onUnlock(pw);
